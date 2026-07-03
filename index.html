@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+    <title>Presenze Manpower</title>
+
+    <link rel="manifest" href="manifest.json">
+    <link
+    rel="apple-touch-icon"
+    href="icon-1024.jpg"
+>
+
+    <meta name="theme-color" content="#8FA495">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Presenze">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="assets/css/style.css">
+
+</head>
+
+<body>
+
+    <div id="app">
+
+        <header class="top-bar">
+
+            <button class="recap-button">
+                RECAP
+                <br>
+                MENSILE
+            </button>
+
+            <button class="month-button" id="monthButton">
+    ---
+</button>
+
+            <div class="days-grid" id="daysGrid">
+
+</div>
+
+        </header>
+
+       <div class="day-slider">
+
+    <div class="day-track">
+
+       <main class="day-card previous-card">
+    <div class="card-placeholder" id="previousPreview">
+    --
+</div>
+
+</main>
+
+        <main class="day-card current-card">
+
+            <div class="current-day">
+
+                <button id="prevDayBtn">
+                    ◀
+                </button>
+
+                <span id="currentDate">
+                    --
+                </span>
+
+                <button id="nextDayBtn">
+                    ▶
+                </button>
+
+            </div>
+
+            <div class="field">
+                <label>Entrata</label>
+                <input id="entryInput" type="text" value="10:00" inputmode="numeric">
+            </div>
+
+            <div class="field">
+                <label>Uscita</label>
+                <input id="exitInput" type="text" value="18:00" inputmode="numeric">
+            </div>
+
+            <div class="field">
+                <label>Ore assenza</label>
+                <input id="absenceInput" type="text" value="00:00" inputmode="numeric">
+            </div>
+
+            <div class="field">
+                <label>Tipologia</label>
+                <input id="typeInput" type="text" value="--">
+            </div>
+
+            <div class="worked-hours">
+                Ore eff. lavorate: 08h 00m
+            </div>
+
+            <div class="buttons">
+
+                <button class="reset-btn">
+                    RESET
+                </button>
+
+                <button class="save-btn" id="saveButton">
+                    SALVA
+                </button>
+
+            </div>
+
+
+        </main>
+
+        <main class="day-card next-card">
+    <div class="card-placeholder" id="nextPreview">
+    --
+</div>
+</main>
+
+    </div>
+    <div class="swipe-indicator">
+
+    <span
+        id="dotLeft"
+        class="indicator-dot"
+    ></span>
+
+    <span
+        id="dotCenter"
+        class="indicator-dot active"
+    ></span>
+
+    <span
+        id="dotRight"
+        class="indicator-dot"
+    ></span>
+
+    </div>
+
+</div>
+
+<div class="quick-navigation">
+
+    <button id="firstDayBtn">
+        INIZIO
+    </button>
+
+    <button id="todayBtn">
+        OGGI
+    </button>
+
+    <button id="lastDayBtn">
+        FINE
+    </button>
+
+</div>
+
+</div>
+
+<div class="type-modal-overlay" id="typeModalOverlay">
+
+    <div class="type-modal">
+
+        <div class="type-modal-title">
+            TIPOLOGIA
+        </div>
+
+        <button class="type-option">--</button>
+
+        <button class="type-option">FERIE</button>
+
+        <button class="type-option">MALATTIA</button>
+
+        <button class="type-option">ROL</button>
+
+        <button class="type-option">SMART WORKING</button>
+
+        <button class="type-option">ALTRO</button>
+
+    </div>
+
+</div>
+<div
+    class="custom-type-overlay"
+    id="customTypeOverlay"
+>
+
+    <div class="custom-type-modal">
+
+        <div class="custom-type-title">
+            DESCRIZIONE
+        </div>
+
+        <input
+            id="customTypeInput"
+            type="text"
+            placeholder="Inserisci descrizione"
+        >
+
+        <div class="custom-type-buttons">
+
+            <button
+                id="customTypeCancel"
+            >
+                ANNULLA
+            </button>
+
+            <button
+                id="customTypeSave"
+            >
+                SALVA
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+<div class="recap-overlay" id="recapOverlay">
+
+    <div class="recap-modal">
+
+        <div class="recap-title">
+            RECAP MENSILE
+        </div>
+
+        <div
+            class="recap-month"
+            id="recapMonthTitle"
+        >
+            LUGLIO 2026
+        </div>
+
+        <div class="recap-summary">
+
+            <div class="recap-row">
+                <span>Ore lavorate</span>
+                <span id="recapWorkedDays">0</span>
+            </div>
+
+            <div class="recap-row">
+                <span>Ferie</span>
+                <span id="recapHolidayHours">0h</span>
+            </div>
+
+            <div class="recap-row">
+                <span>ROL</span>
+                <span id="recapRolHours">0h</span>
+            </div>
+
+            <div class="recap-row">
+                <span>Malattia</span>
+                <span id="recapSickHours">0h</span>
+            </div>
+
+            <div class="recap-row">
+                <span>Presenza</span>
+                <span id="recapPresenceDays">0</span>
+            </div>
+
+            <div class="recap-row">
+                <span>Smart Working</span>
+                <span id="recapSmartDays">0</span>
+            </div>
+
+        </div>
+
+        <div
+            class="recap-days"
+            id="recapDaysContainer"
+        >
+
+        </div>
+
+        <button
+            class="recap-close-btn"
+            id="recapCloseBtn"
+        >
+            CHIUDI
+        </button>
+
+    </div>
+
+</div>
+<div
+    class="reset-overlay"
+    id="resetOverlay"
+>
+
+    <div class="reset-modal">
+
+        <div class="reset-title">
+            Reset giornata?
+        </div>
+
+        <div class="reset-text">
+            Tutti i dati della giornata
+            verranno eliminati.
+        </div>
+
+        <div class="reset-buttons">
+
+            <button
+                id="resetCancelBtn"
+            >
+                ANNULLA
+            </button>
+
+            <button
+                id="resetConfirmBtn"
+            >
+                RESET
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+    <script type="module"
+            src="assets/js/app.js"></script>
+
+</body>
+
+</html>

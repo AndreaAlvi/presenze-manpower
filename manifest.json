@@ -1,0 +1,16 @@
+{
+    "name": "Presenze Manpower",
+    "short_name": "Presenze M",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#95A99B",
+    "theme_color": "#95A99B",
+    "orientation": "portrait",
+    "icons": [
+        {
+            "src": "icon-1024.jpg",
+            "sizes": "1024x1024",
+            "type": "image/jpeg"
+        }
+    ]
+}
