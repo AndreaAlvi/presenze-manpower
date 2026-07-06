@@ -350,6 +350,13 @@ for(
         "recap-day-card";
         const today =
     new Date();
+    today.setHours(
+    0,
+    0,
+    0,
+    0
+);
+    
 
 today.setHours(
     0,0,0,0
@@ -575,6 +582,31 @@ function attachParser(id) {
         "input",
         calculateWorkedHours
     );
+    input.addEventListener(
+    "focus",
+    () => {
+
+        if(
+            input.value === "--:--"
+        ){
+            input.value = "";
+        }
+
+    }
+);
+
+input.addEventListener(
+    "blur",
+    () => {
+
+        if(
+            input.value.trim() === ""
+        ){
+            input.value = "--:--";
+        }
+
+    }
+);
 }
 
 async function loadCurrentDay() {
@@ -933,50 +965,10 @@ document
     )
     .addEventListener(
         "click",
-        async () => {
+        () => {
+
             openResetModal();
-            
 
-            await deleteDay(
-                currentDate
-                    .toISOString()
-                    .split("T")[0]
-            );
-            if(
-    navigator.vibrate
-){
-    navigator.vibrate(
-        20
-    );
-}
-
-            document.getElementById(
-                "entryInput"
-            ).value = "--:--";
-
-            document.getElementById(
-                "exitInput"
-            ).value = "--:--";
-
-            document.getElementById(
-                "absenceInput"
-            ).value = "--:--";
-
-            document.getElementById(
-                "typeInput"
-            ).value = "--";
-
-            editMode = true;
-
-            setInputsDisabled(
-                false
-            );
-
-            updateButtonState();
-
-            calculateWorkedHours();
-
-            await renderGrid();
         }
     );
     document

@@ -6,7 +6,7 @@
 
 body{
     font-family:'Montserrat', sans-serif;
-    background:#d9d9d9;
+    background:#95A99B;
     display:flex;
     justify-content:center;
     min-height:100vh;
@@ -15,8 +15,7 @@ body{
 #app{
     width:375px;
     min-height:812px;
-    background:#95A99B;
-    padding:28px 18px;
+    padding:50px 18px 20px 18px;
 }
 
 .top-bar{
@@ -78,7 +77,7 @@ body{
 }
 
 .day-slider{
-    margin-top:35px;
+    margin-top:18px;
     overflow:hidden;
     position:relative;
     width:100%;
@@ -94,10 +93,10 @@ body{
     width:calc((100% - 24px) / 3);
 flex-shrink:0;
     touch-action: pan-y;
-    height:620px;
+    height:530px;
     border-radius:28px;
     background:#EDF0EE;
-    padding:20px;
+    padding:16px;
 
     position:relative;
     left:0;
@@ -119,20 +118,20 @@ flex-shrink:0;
     font-weight:700;
 }
 .field{
-    margin-top:22px;
+    margin-top:16px;
 }
 
 .field label{
     display:block;
     margin-bottom:8px;
-    font-size:18px;
+    font-size:16px;
     font-weight:600;
     color:#8AA194;
 }
 
 .field input{
     width:100%;
-    height:48px;
+    height:42px;
     border:none;
     background:white;
     border-radius:0;
@@ -161,7 +160,7 @@ flex-shrink:0;
 }
 
 .worked-hours{
-    margin-top:20px;
+    margin-top:12px;
 
     font-size:18px;
     font-style:italic;
@@ -349,7 +348,7 @@ input:read-only::placeholder{
 .recap-modal{
 
     width:340px;
-    height:92vh;
+    height:86vh;
 
     background:white;
 
@@ -365,7 +364,7 @@ input:read-only::placeholder{
 
 .recap-title{
 
-    height:90px;
+    height:72px;
 
     display:flex;
     justify-content:center;
@@ -381,7 +380,7 @@ input:read-only::placeholder{
 
 .recap-month{
 
-    padding:20px;
+    padding:12px;
 
     text-align:center;
 
@@ -393,7 +392,7 @@ input:read-only::placeholder{
 
 .recap-summary{
 
-    padding:0 24px 20px 24px;
+    padding:0 24px 10px 24px;
 }
 
 .recap-row{
@@ -402,7 +401,7 @@ input:read-only::placeholder{
 
     justify-content:space-between;
 
-    margin-bottom:14px;
+    margin-bottom:8px;
 
     font-size:18px;
 }
@@ -420,7 +419,7 @@ input:read-only::placeholder{
 
 .recap-close-btn{
 
-    height:64px;
+    height:52px;
 
     border:none;
 
@@ -430,7 +429,7 @@ input:read-only::placeholder{
 
     font-family:'Montserrat',sans-serif;
 
-    font-size:24px;
+    font-size:22px;
     font-weight:700;
 
     cursor:pointer;
