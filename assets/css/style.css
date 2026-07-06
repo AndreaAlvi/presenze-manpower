@@ -15,7 +15,7 @@ body{
 
 #app{
     width:375px;
-    min-height:812px;
+    height:100%;
     padding:50px 18px 20px 18px;
 }
 
