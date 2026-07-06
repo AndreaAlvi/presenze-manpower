@@ -9,7 +9,8 @@ body{
     background:#95A99B;
     display:flex;
     justify-content:center;
-    min-height:100vh;
+    height:100dvh;
+    overflow:hidden;
 }
 
 #app{
