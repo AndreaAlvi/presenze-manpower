@@ -711,7 +711,40 @@ async function renderGrid() {
 
     const savedDates =
         await getSavedDates();
+        const firstDayOfMonth =
+    new Date(
+        year,
+        month,
+        1
+    ).getDay();
 
+const offset =
+    firstDayOfMonth === 0
+        ? 6
+        : firstDayOfMonth - 1;
+
+        for(
+    let i = 0;
+    i < offset;
+    i++
+){
+
+    const empty =
+        document.createElement(
+            "div"
+        );
+
+    empty.classList.add(
+        "day"
+    );
+
+    empty.style.visibility =
+        "hidden";
+
+    daysGrid.appendChild(
+        empty
+    );
+}
     for (
         let i = 1;
         i <= daysInMonth;
@@ -726,6 +759,24 @@ async function renderGrid() {
         square.classList.add(
             "day"
         );
+        const weekday =
+    new Date(
+        year,
+        month,
+        i
+    ).getDay();
+
+if(
+    weekday === 6
+){
+    square.textContent = "S";
+}
+
+if(
+    weekday === 0
+){
+    square.textContent = "D";
+}
 
         const isCurrent =
             i === currentDate.getDate();
@@ -1010,6 +1061,24 @@ else{
                             "typeInput"
                         ).value =
                             value;
+                            if(
+    value === "FERIE"
+){
+
+    document.getElementById(
+        "entryInput"
+    ).value = "--:--";
+
+    document.getElementById(
+        "exitInput"
+    ).value = "--:--";
+
+    document.getElementById(
+        "absenceInput"
+    ).value = "08:00";
+
+    calculateWorkedHours();
+}
                     }
 
                     closeTypeModal();
